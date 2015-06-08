@@ -1,3 +1,4 @@
+#!/usr/bin/env python2.7
 # This grabs new river info
 
 

@@ -1,3 +1,4 @@
+#!/usr/bin/env python2.7
 # Run under python3
 # This script updates a dictionary of historical data from any new data
 
