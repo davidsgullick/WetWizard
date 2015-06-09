@@ -167,8 +167,8 @@ def connectToSQLiteDB( dbname ):
             cur.execute('CREATE TABLE IF NOT EXISTS "main"."RiverInfo" ("UUID" NVARCHAR PRIMARY KEY  NOT NULL , "URL" NVARCHAR NOT NULL , "SECTION" NVARCHAR, "KM" NVARCHAR NOT NULL  DEFAULT 0, "GRADE" NVARCHAR NOT NULL  DEFAULT 0, "DIRECTIONS" NVARCHAR, "PUTIN_LAT" DOUBLE NOT NULL , "PUTIN_LON" DOUBLE NOT NULL , "TAKEOUT_LAT" DOUBLE NOT NULL , "TAKEOUT_LON" DOUBLE NOT NULL , "RIVER" NVARCHAR NOT NULL , "DESCRIPTION" NVARCHAR, UNIQUE (UUID))');
             cur.execute('CREATE TABLE IF NOT EXISTS "RiverSample" ("SampleID" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL  , "River_UUID" NVARCHAR , "TEXT" NVARCHAR, "SOURCE_TYPE" NVARCHAR, "SOURCE_NAME" NVARCHAR, "SOURCE_VALUE" DOUBLE, "VALUE" DOUBLE, "TIMESTAMP" REAL, UNIQUE (River_UUID, TIMESTAMP)) ');
             cur.execute('CREATE  TABLE IF NOT EXISTS "main"."MetaInfo" ("VarName" NVARCHAR PRIMARY KEY  NOT NULL  UNIQUE )')
-            cur.execute('CREATE  TABLE IF NOT EXISTS "main"."MetaInfo" ("VarName" NVARCHAR PRIMARY KEY  NOT NULL  UNIQUE, "VarValue" NVARCHAR )')
-            cur.execute('INSERT INTO "main"."MetaInfo" ("VarName","VarValue") VALUES (?,?)',("NextLink", "http://api.rainchasers.com/v1/river"))
+            cur.execute('CREATE TABLE IF NOT EXISTS "MetaInfo" ("VarName" NVARCHAR PRIMARY KEY  NOT NULL  UNIQUE, "VarValue" NVARCHAR )')
+            cur.execute("INSERT INTO MetaInfo VALUES('NextLink','http://api.rainchasers.com/v1/river')")
         except:
             pass
 
